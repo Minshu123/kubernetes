@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: "myrc1"
+spec:
+  replicas: 3
+  selector:
+   dc: in
+  template:
+   metadata:
+     name: "mypod1"
+     labels:
+       dc: in
+   spec:
+     containers:
+     - name: "os1"
+       image: "vimal13/apache-webserver-php"
+       ports:
+       - containerPort: 80
+          
